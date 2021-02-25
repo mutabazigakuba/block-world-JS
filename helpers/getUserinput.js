@@ -1,6 +1,7 @@
 const prompt = require('prompt-sync')();
 
 export const getUserInput = ()=>{
+    console.log('###################\n')
     var number = prompt('Input any number => ');
     if (Number.isInteger(Number(number))){
         if (number < 1 || number > 24){
