@@ -28,17 +28,16 @@ if (Number.isInteger(Number(inputNumber)))
     {
         var selectedMove = moveOption();
         if (selectedMove == 1){
-            initialBlockWorld = moveAontoB(a, b, initialBlockWorld);
-            console.log('here'+initialBlockWorld)
+            moveAontoB(a, b, initialBlockWorld);
         }
         else if (selectedMove == 2){
-            initialBlockWorld = moveAoverB(a, b, initialBlockWorld);
+            moveAoverB(a, b, initialBlockWorld);
         }
         else if (selectedMove == 3){
-            initialBlockWorld = pileAontoB(a, b, initialBlockWorld);
+            pileAontoB(a, b, initialBlockWorld);
         }
         else if (selectedMove ==4){
-            initialBlockWorld = pileOverB(a, b, initialBlockWorld);
+            pileOverB(a, b, initialBlockWorld);
         }
         else{
             console.log('Value not allowed')
@@ -80,6 +79,7 @@ function getBlockNumber(number, blockNumbers){
 }
 
 function moveOption(){
+    console.log('')
     const inputOptions = 'Select: #1. Move A onto B #2. Move A over B #3. Pile A onto B #4. Pile A over B => ';
     var selectOption = prompt(inputOptions);
     if (Number.isInteger(Number(selectOption)))

@@ -17,7 +17,6 @@ export const moveAontoB = (a, b, blockNumbers)=>{
                 console.log(i+': '+blockNumbers[i])
             }
         }
-        return blockNumbers;
     }
     else if (blocksOnTopOfA.length > 0 && blocksOnTopOfB.length == 0)
     {
@@ -27,9 +26,6 @@ export const moveAontoB = (a, b, blockNumbers)=>{
             newBlocks.splice(blocksOnTopOfA[i+1], 0, blocksOnTopOfA[i+1])
         }
         blocksOnTopOfA.push(b)
-        // for(i=0; i<a; i++){
-
-        // }
     }
     else if (blocksOnTopOfA.length == 0 && blocksOnTopOfB.length > 0)
     {
