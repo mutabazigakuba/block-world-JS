@@ -9,34 +9,63 @@ const prompt = require('prompt-sync')();
 start();
 
 function start() {
+
+    // getting user blocks range input from the cmd
     var inputNumber = getUserInput();
+
+    // check if the return is valid
     if (Number.isInteger(Number(inputNumber))) {
+
+        // create blocks array depending on the number entered
         var initialBlockWorld = createBlocks(inputNumber)
 
+        // get value of block A
         var a = getBlockNumber('A', initialBlockWorld);
+
+        // get value of block B
         var b = getBlockNumber('B', initialBlockWorld);
 
-
+        // check if blocks A is number
         if (!(Number.isInteger(Number(a)))) {
             console.log(a + '\n')
-        } else if (!(Number.isInteger(Number(b)))) {
+        }
+        
+        // check if blocks B is number
+        else if (!(Number.isInteger(Number(b)))) {
             console.log(b + '\n')
-        } else if (a == b) {
+        } 
+        
+        // check if block A and B are not equal numbers
+        else if (a == b) {
             console.log('A should not be equal to B\n')
-        } else {
+        } 
+        
+        else {
+
+            // get the move selected by the user
             var selectedMove = moveOption();
+
+            // if move is option 1, then move is A over B
             if (selectedMove == 1) {
                 moveAontoB(a, b, initialBlockWorld);
             }
+
+            // if move is option 2, then move is A onto B
             else if (selectedMove == 2) {
                 moveAoverB(a, b, initialBlockWorld);
             }
+
+            // if move is option 3, then move is pile A over B
             else if (selectedMove == 3) {
                 pileAontoB(a, b, initialBlockWorld);
             }
+
+            // if move is option 4, then move is pile A onto B
             else if (selectedMove == 4) {
                 pileOverB(a, b, initialBlockWorld);
             }
+
+            // else move is  not accepted
             else {
                 console.log('Value not allowed')
             }
@@ -47,6 +76,7 @@ function start() {
     }
 }
 
+// function to create blocks 
 function createBlocks(inputNumber) {
     var initialBlockWorld = new Array(Number(inputNumber))
     var blocks = 0;
@@ -58,6 +88,7 @@ function createBlocks(inputNumber) {
     return initialBlockWorld;
 }
 
+// function to get user input for the blocks to move
 function getBlockNumber(number, blockNumbers) {
     var userInput = prompt('Input block number: ' + number + ' => ');
     if (Number.isInteger(Number(userInput))) {
@@ -73,6 +104,7 @@ function getBlockNumber(number, blockNumbers) {
     }
 }
 
+// fucntion to get move required by the user given in select options
 function moveOption() {
     console.log('')
     const inputOptions = 'Select: #1. Move A onto B #2. Move A over B #3. Pile A onto B #4. Pile A over B => ';
